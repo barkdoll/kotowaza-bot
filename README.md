@@ -3,6 +3,9 @@
 ## About
 This is a simple bot for use with the Twitter API. It tweets a random kotowaza (Japanese proverb) every 30 minutes.
 
+## Want ことわざ sent to your feed?
+[Follow the kotowaza-bot on twitter.](https://twitter.com/random_kotowaza)
+
 ## Credits
 Thank you to [Alex Yatskov (FooSoft)](https://github.com/FooSoft) for his awesome work on rescuing the world from the horror of the EPWING format. Your work on [ZeroEPWING](https://github.com/FooSoft/zero-epwing) and [Yomichan Import](https://github.com/FooSoft/yomichan-import) allowed me to funnel the proverbs into JSON format for this app.
 
