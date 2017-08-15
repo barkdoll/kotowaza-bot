@@ -1,4 +1,4 @@
-console.log('The bot is starting');
+console.log('Bot started...');
 
 // Requirements
 const Twit = require('twit');
@@ -23,8 +23,6 @@ function getWisdom() {
    }
 
    let chosen = pickTweet(kotowaza);
-
-   // &#010; - try this & code if the \n returns don't work
    let post = `${chosen[0]}\n${chosen[1]}`;
 
    return post;
@@ -40,5 +38,5 @@ function tweetIt() {
 // Executes once intially on startup.
 tweetIt();
 
-// Makes a post every forty minutes. With Heroku, you can use the scheduler addon to avoid having to run setInterval() constantly.
-// setInterval(tweetIt, 1000 * 40 * 20)
+// Makes a post every hour.
+setInterval(tweetIt, 1000 * 60 * 60)
