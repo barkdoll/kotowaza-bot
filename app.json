@@ -1,0 +1,15 @@
+{
+   "name": "Kotowaza Twitter Bot",
+   "description": "A Node.js bot that tweets Japanese wisdom",
+   "website": "https://twitter.com/random_kotowaza",
+   "repository": "https://github.com/jeh-c/kotowaza-bot",
+   "keywords": [
+      "node",
+      "twitter",
+      "twitter-api",
+      "twitter-bot",
+      "japanese",
+      "nihongo",
+      "kotowaza"
+   ]
+}
