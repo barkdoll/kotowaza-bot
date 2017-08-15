@@ -1,0 +1,24 @@
+{
+  "name": "kotowaza-bot",
+  "version": "1.0.0",
+  "description": "## About This is a simple bot for use with the Twitter API. It tweets a random kotowaza (Japanese proverb) every 30 minutes.",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeh-c/kotowaza-bot.git"
+  },
+  "dependencies": {
+    "node-twitterbot": "^0.2.2",
+    "twit": "^2.2.9"
+  },
+  "keywords": [],
+  "author": "Jesse Barkdoll",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeh-c/kotowaza-bot/issues"
+  },
+  "homepage": "https://github.com/jeh-c/kotowaza-bot#readme"
+}
