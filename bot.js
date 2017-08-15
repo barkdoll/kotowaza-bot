@@ -25,7 +25,7 @@ function getWisdom() {
    let chosen = pickTweet(kotowaza);
 
    // &#010; - try this & code if the \n returns don't work
-   let post = `${chosen[0]}\n${chosen[1]}\n#ことわざ`;
+   let post = `${chosen[0]}\n${chosen[1]}`;
 
    return post;
 }
