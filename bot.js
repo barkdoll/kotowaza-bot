@@ -3,12 +3,8 @@ console.log('The bot is starting');
 // Requirements
 const Twit = require('twit');
 const TwitterBot = require('node-twitterbot').TwitterBot;
-// Requiring 'config' keeps API keys separate so code is shareable
-// Obviously if you kept them right here in your code, it would raise serious security concerns.
-const config = require('./config');
-const json_data = require('kotowaza.json');
 
-const kotowaza = JSON.stringify(json_data);
+const kotowaza = require('./kotowaza.json');
 
 // Setup for config variables in Heroku
 const Bot = new TwitterBot({
@@ -29,7 +25,7 @@ function getWisdom() {
 
    let chosen = pickTweet(kotowaza);
    // NOTE: this template string's format will have to change. .ja and .en will no longer exist once you have the kotowaza.json file formatted. You will have to use array indexes instead (e.g. - chosen[0] or chosen[1])
-   let post = `${chosen.ja}\n${chosen.en}\n#ことわざ`;
+   let post = `${chosen[0]}\n${chosen[1]}\n#ことわざ`;
    // &#010; - try this & code if the \n returns don't work
    return post;
 }
@@ -56,5 +52,6 @@ function tweetIt() {
 
 // Executes once intially on startup.
 tweetIt();
-// Makes a post every forty minutes.
-setInterval(tweetIt, 1000 * 40 * 20)
+
+// Makes a post every forty minutes. With Heroku, you can use the scheduler addon to avoid having to run setInterval() constantly.
+// setInterval(tweetIt, 1000 * 40 * 20)
