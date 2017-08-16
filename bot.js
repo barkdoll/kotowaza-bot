@@ -24,13 +24,13 @@ function getWisdom() {
 
    let chosen = pickTweet(data);
 
-   let kotowaza = `【${chosen[0]}】${chosen[1]}`;
+   let kotowaza = `【${chosen[0]}】\n${chosen[1]}`;
    let imi = chosen[2].split(/\n\n/)[1];
 
-   let post = `${kotowaza}\n${imi}`;
+   let post = `${kotowaza}\n～\n${imi}`;
 
    if (post.length > 140) {
-       post = `${post.substr(0, 137)}…`;
+       post = `${post.substr(0, 139)}…`;
    }
 
    return post;
