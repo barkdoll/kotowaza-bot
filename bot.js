@@ -7,12 +7,12 @@ const TwitterBot = require('node-twitterbot').TwitterBot;
 const data = require('./kotowaza.json');
 
 // Setup for config variables in Heroku
-// const Bot = new TwitterBot({
-//     consumer_key: process.env.BOT_CONSUMER_KEY,
-//     consumer_secret: process.env.BOT_CONSUMER_SECRET,
-//     access_token: process.env.BOT_ACCESS_TOKEN,
-//     access_token_secret: process.env.BOT_ACCESS_TOKEN_SECRET
-// });
+const Bot = new TwitterBot({
+    consumer_key: process.env.BOT_CONSUMER_KEY,
+    consumer_secret: process.env.BOT_CONSUMER_SECRET,
+    access_token: process.env.BOT_ACCESS_TOKEN,
+    access_token_secret: process.env.BOT_ACCESS_TOKEN_SECRET
+});
 
 // The main funcion that returns a random proverb
 function getWisdom() {
@@ -38,13 +38,12 @@ function getWisdom() {
 
 function tweetIt() {
    let tweet = getWisdom()
-   console.log(tweet);
    // Uses node-twitterbot to send the data to twitter and post.
-   // Bot.tweet(tweet);
+   Bot.tweet(tweet);
 }
 
 // Executes once intially on startup.
 tweetIt();
 
 // Makes a post every hour.
-// setInterval(tweetIt, 1000 * 60 * 60)
+setInterval(tweetIt, 1000 * 60 * 60)
