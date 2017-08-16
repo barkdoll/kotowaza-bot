@@ -1,7 +1,7 @@
 # kotowaza-bot | ことわざ bot
 
 ## About
-This is a simple bot for use with the Twitter API. It tweets a random kotowaza (Japanese proverb) every 30 minutes.
+This is a simple bot for use with the Twitter API. It tweets a random kotowaza (Japanese proverb) once per hour.
 
 ## Want ことわざ sent to your feed?
 [Follow the kotowaza-bot on twitter.](https://twitter.com/random_kotowaza)
