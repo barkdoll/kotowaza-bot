@@ -1,49 +1,47 @@
-console.log('Bot started...');
+const { TwitterBot } = require('node-twitterbot');
+const kotowazaData = require('./kotowaza.json');
 
-// Requirements
-const Twit = require('twit');
-const TwitterBot = require('node-twitterbot').TwitterBot;
+const random = arr => {
+   const randomNumber = Math.floor(Math.random() * arr.length);
+   return arr[randomNumber];
+}
 
-const data = require('./kotowaza.json');
+console.log('Running bot setup');
 
 // Setup for config variables in Heroku
-const Bot = new TwitterBot({
+const bot = new TwitterBot({
     consumer_key: process.env.BOT_CONSUMER_KEY,
     consumer_secret: process.env.BOT_CONSUMER_SECRET,
     access_token: process.env.BOT_ACCESS_TOKEN,
     access_token_secret: process.env.BOT_ACCESS_TOKEN_SECRET
 });
 
+
 // The main funcion that returns a random proverb
-function getWisdom() {
-   // function to generate random number out of array index
-   function pickTweet(arr) {
-      let randomNumber = Math.floor(Math.random() * arr.length);
-      return arr[randomNumber];
-   }
+const getWisdom = data => {
 
-   let chosen = pickTweet(data);
+   const chosen = random(data);
 
-   let kotowaza = `【${chosen[0]}】\n${chosen[1]}`;
-   let imi = chosen[2].split(/\n\n/)[1];
+   const [withKanji, furigana, imiUnrefined] = chosen;
+   
+   const kotowaza = `【${withKanji}】\n${furigana}`;
+   
+   const imi = imiUnrefined.split(/\n\n/)[1];
 
-   let post = `${kotowaza}\n～\n${imi}`;
+   const post = `${kotowaza}\n～\n${imi}`;
 
-   if (post.length > 140) {
-       post = `${post.substr(0, 139)}…`;
+   if ( post.length > 140 ) 
+   {
+       return `${post.substr(0, 139)}…`;
    }
 
    return post;
 }
 
-function tweetIt() {
-   let tweet = getWisdom()
-   // Uses node-twitterbot to send the data to twitter and post.
-   Bot.tweet(tweet);
-}
+const tweet = () => bot.tweet(getWisdom(kotowazaData));
 
 // Executes once intially on startup.
-tweetIt();
+tweet();
 
 // Makes a post every hour.
-setInterval(tweetIt, 1000 * 60 * 60)
+setInterval(tweet, 1000 * 60 * 60)
