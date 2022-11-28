@@ -32,7 +32,7 @@ const getWisdom = data => {
 
    if ( post.length > 140 ) 
    {
-       return `${post.substr(0, 139)}…`;
+       return `${post.substring(0, 139)}…`;
    }
 
    return post;
@@ -44,4 +44,4 @@ const tweet = () => bot.tweet(getWisdom(kotowazaData));
 tweet();
 
 // Makes a post every hour.
-setInterval(tweet, 1000 * 60 * 60)
+setInterval(tweet, 1000 * 60 * 60);
