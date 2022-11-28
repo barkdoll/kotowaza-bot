@@ -50,8 +50,4 @@ const tweet = () => {
     bot.tweet(kotowaza);
 };
 
-// Executes once intially on startup.
-tweet();
-
-// Makes a post every hour.
-setInterval(tweet, 1000 * 60 * 60);
+export {tweet}
