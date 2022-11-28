@@ -43,7 +43,12 @@ const getWisdom = data => {
    return post;
 }
 
-const tweet = () => bot.tweet(getWisdom(kotowazaData));
+const tweet = () => {
+    const kotowaza = getWisdom(kotowazaData);
+    console.log('tweeting...')
+    console.log(kotowaza);
+    bot.tweet(kotowaza);
+};
 
 // Executes once intially on startup.
 tweet();
