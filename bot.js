@@ -1,5 +1,10 @@
-const { TwitterBot } = require('node-twitterbot');
-const kotowazaData = require('./kotowaza.json');
+import fs from 'fs';
+import { TwitterBot } from 'node-twitterbot';
+
+const loadJSON = path => 
+    JSON.parse(fs.readFileSync(new URL(path, import.meta.url)));
+
+const kotowazaData = loadJSON('./kotowaza.json');
 
 const random = arr => {
    const randomNumber = Math.floor(Math.random() * arr.length);
